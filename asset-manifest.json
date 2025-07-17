@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/raghav9k.github.io/my-anniversary-website/static/css/main.a4bcce35.css",
-    "main.js": "/raghav9k.github.io/my-anniversary-website/static/js/main.678e7de3.js",
-    "static/js/453.575118e1.chunk.js": "/raghav9k.github.io/my-anniversary-website/static/js/453.575118e1.chunk.js",
-    "index.html": "/raghav9k.github.io/my-anniversary-website/index.html",
-    "main.a4bcce35.css.map": "/raghav9k.github.io/my-anniversary-website/static/css/main.a4bcce35.css.map",
-    "main.678e7de3.js.map": "/raghav9k.github.io/my-anniversary-website/static/js/main.678e7de3.js.map",
-    "453.575118e1.chunk.js.map": "/raghav9k.github.io/my-anniversary-website/static/js/453.575118e1.chunk.js.map"
+    "main.css": "/my-anniversary-website/static/css/main.a4bcce35.css",
+    "main.js": "/my-anniversary-website/static/js/main.1fc9d024.js",
+    "static/js/453.575118e1.chunk.js": "/my-anniversary-website/static/js/453.575118e1.chunk.js",
+    "index.html": "/my-anniversary-website/index.html",
+    "main.a4bcce35.css.map": "/my-anniversary-website/static/css/main.a4bcce35.css.map",
+    "main.1fc9d024.js.map": "/my-anniversary-website/static/js/main.1fc9d024.js.map",
+    "453.575118e1.chunk.js.map": "/my-anniversary-website/static/js/453.575118e1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a4bcce35.css",
-    "static/js/main.678e7de3.js"
+    "static/js/main.1fc9d024.js"
   ]
 }
