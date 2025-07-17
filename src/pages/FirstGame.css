@@ -1,0 +1,108 @@
+/* Styling for FirstGame page input error and shake animation */
+body {
+  background: linear-gradient(135deg, #FFB3C6 0%, #FFB3C6 100%);
+}
+
+.firstgame-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.firstgame-card {
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 8px 32px rgba(80, 0, 80, 0.12);
+  border-radius: 32px;
+  background: #FFE5EC;
+  border: none;
+  padding: 2.5rem 2rem;
+}
+
+.firstgame-title {
+  font-family: 'Pacifico', 'Poppins', cursive, sans-serif;
+  color: #d72660;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.firstgame-question {
+  font-family: 'Poppins', 'Arial', sans-serif;
+  color: #FB6F92;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.firstgame-form {
+  display: flex;
+  min-width: 20rem;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.firstgame-form .mantine-TextInput-root {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(80, 0, 80, 0.04);
+  backdrop-filter: blur(6px);
+  
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+
+.firstgame-form .mantine-TextInput-root input {
+  background: transparent !important;
+  border: none;
+  
+  font-size: 1.2rem;
+  font-family: 'Poppins', 'Arial', sans-serif;
+  box-shadow: none;
+  width: 100%;
+}
+
+.firstgame-form .mantine-TextInput-root input:focus {
+  outline: none;
+  border: none;
+  box-shadow: none !important;
+}
+
+.shake-input {
+  animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+  10%, 90% { transform: translateX(-2px); }
+  20%, 80% { transform: translateX(4px); }
+  30%, 50%, 70% { transform: translateX(-8px); }
+  40%, 60% { transform: translateX(8px); }
+}
+
+.error-input input {
+  border-color: #d72660 !important;
+  color: #d72660 !important;
+}
+
+/* Error message styling */
+.firstgame-error-message {
+  margin-top: 0.5rem;
+  color: #d72660;
+  font-weight: 600;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .firstgame-card {
+    max-width: 98vw;
+    padding: 1rem;
+  }
+  .firstgame-title {
+    font-size: 1.3rem;
+  }
+  .firstgame-question {
+    font-size: 1rem;
+  }
+}

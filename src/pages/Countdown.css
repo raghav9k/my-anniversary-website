@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap');
+
+body {
+  background: linear-gradient(180deg, #FFE5EC 0%, #FB6F92 100%);
+}
+
+.countdown-container {
+  min-height: 100vh;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.countdown-card {
+  min-width: 80rem;
+  margin: 3 auto;
+  box-shadow: 0 8px 32px rgba(80, 0, 80, 0.12);
+  border-radius: 32px;
+  background: #FFE5EC;
+  border: 3px transparent #FB6F92;
+}
+
+.countdown-group {
+  display: flex;
+  justify-content: center;
+  
+  gap: 10rem;
+  
+}
+
+.countdown-unit {
+  text-align: center;
+  padding: 0.5rem 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 16px;
+  background: rgba(255, 192, 203, 0.08);
+  
+}
+
+.countdown-unit .mantine-Text-root {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.countdown-unit .mantine-Text-root:first-child {
+  font-size: 8rem;
+  font-weight: 800;
+  color: #d72660;
+  margin-bottom: 0.25rem;
+  font-family: 'Roboto Mono', 'Menlo', 'Monaco', 'Consolas', monospace;
+  text-transform: capitalize;
+}
+
+.countdown-unit .mantine-Text-root:last-child {
+  font-size: 1.2rem;
+  color: #d72660;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.countdown-title {
+  font-family: 'Pacifico', 'Poppins', cursive, sans-serif;
+  color: #d72660;
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.countdown-subtitle {
+  font-family: 'Poppins', 'Arial', sans-serif;
+  color: #d72660;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.countdown-animate {
+  animation: pop 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+    color: #d72660;
+  }
+  30% {
+    transform: scale(1.25);
+    color: #fb6f92;
+  }
+  60% {
+    transform: scale(0.95);
+    color: #d72660;
+  }
+  100% {
+    transform: scale(1);
+    color: #d72660;
+  }
+}
+
+.fade-message {
+  min-height: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fade-in {
+  animation: fadeIn 0.8s forwards;
+  opacity: 1;
+}
+.fade-out {
+  animation: fadeOut 0.8s forwards;
+  opacity: 0;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@media (max-width: 600px) {
+  .countdown-card {
+    max-width: 98vw;
+    padding: 1rem;
+  }
+  .countdown-group {
+    gap: 1.2rem;
+  }
+  .countdown-unit .mantine-Text-root:first-child {
+    font-size: 2rem;
+  }
+  .countdown-unit .mantine-Text-root:last-child {
+    font-size: 1rem;
+  }
+}
