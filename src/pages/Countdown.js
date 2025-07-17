@@ -44,10 +44,26 @@ function Countdown() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const anniversaryDate = new Date('2025-07-19T00:00:00.000Z'); // Replace with your anniversary date, set timezone to GMT (UTC+0)
+    // Helper to get EST (America/New_York) time
+    function getESTDate(date = new Date()) {
+      // EST is UTC-5, but with daylight saving, EDT is UTC-4
+      // We'll use Intl API to get the correct offset for America/New_York
+      const options = { timeZone: 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+      const parts = new Intl.DateTimeFormat('en-US', options).formatToParts(date);
+      const get = (type) => parts.find(p => p.type === type)?.value;
+      // Build a string like 'YYYY-MM-DDTHH:mm:ss' in EST
+      const estString = `${get('year')}-${get('month')}-${get('day')}T${get('hour')}:${get('minute')}:${get('second')}`;
+      return new Date(estString);
+    }
+
+    // Set your anniversary date in EST (midnight at start of the day)
+    const anniversaryEST = new Date('2025-07-19T00:00:00');
+
     const intervalId = setInterval(() => {
-      const now = new Date();
-      const diff = anniversaryDate - now;
+      const nowEST = getESTDate();
+      // Anniversary in EST
+      const anniversary = getESTDate(anniversaryEST);
+      const diff = anniversary - nowEST;
       if (diff > 0) setCountdownStarted(true);
       const days = Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
       const hours = Math.max(0, Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
