@@ -10,7 +10,7 @@ import FirstGame from './pages/FirstGame';
 function App() {
   return (
     <MantineProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/my-anniversary-website">
         <Routes>
           <Route path="/" element={<Countdown />} />
           <Route path="/countdown" element={<Countdown />} />
