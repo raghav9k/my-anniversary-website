@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Container, Title, Text, Card, Group } from '@mantine/core';
 import { useNavigate } from 'react-router-dom';
 import './Countdown.css';
@@ -42,6 +42,7 @@ function Countdown() {
   const [countdownStarted, setCountdownStarted] = useState(false);
 
   const navigate = useNavigate();
+  const intervalRef = useRef();
 
   useEffect(() => {
     // Helper to get EST (America/New_York) time
@@ -57,14 +58,14 @@ function Countdown() {
     }
 
     // Set your anniversary date in EST (midnight at start of the day)
-    const anniversaryEST = new Date('2025-07-19T00:00:00');
+    // Use UTC time for the anniversary, then compare to EST now
+    // July is month 6 (0-based), 4am UTC = midnight EST (EDT)
+    const anniversaryUTC = new Date(Date.UTC(2025, 6, 19, 4, 0, 0));
 
-    const intervalId = setInterval(() => {
+    intervalRef.current = setInterval(() => {
       const nowEST = getESTDate();
-      // Anniversary in EST
-      const anniversary = getESTDate(anniversaryEST);
-      const diff = anniversary - nowEST;
-      if (diff > 0) setCountdownStarted(true);
+      const diff = anniversaryUTC - nowEST;
+      setCountdownStarted(true);
       const days = Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
       const hours = Math.max(0, Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
       const minutes = Math.max(0, Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)));
@@ -74,7 +75,7 @@ function Countdown() {
       setMinutes(minutes);
       setSeconds(seconds);
     }, 1000);
-    return () => clearInterval(intervalId);
+    return () => clearInterval(intervalRef.current);
   }, []);
 
   useEffect(() => {
@@ -82,7 +83,7 @@ function Countdown() {
       setShowMessages(true);
       return;
     }
-    if (countdownStarted && days === 0 && hours === 0 && minutes === 0 && seconds === 0) {
+    if (countdownStarted && days <= 0 && hours <= 0 && minutes <= 0 && seconds <= 0) {
       setShowMessages(true);
     }
   }, [days, hours, minutes, seconds, countdownStarted]);
