@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './Countdown.css';
 
 // Set to true to force message mode for development
-const DEV_FORCE_MESSAGES = false;
+const DEV_FORCE_MESSAGES = true;
 
 function useAnimateOnChange(value) {
   const [animate, setAnimate] = useState(false);
@@ -93,7 +93,7 @@ function Countdown() {
       const fadeTimeout = setTimeout(() => setFade(false), 1800);
       const msgTimeout = setTimeout(() => {
         if (currentMessage === messages.length - 1) {
-          navigate('/firstGame');
+          navigate('/quiz');
         } else {
           setCurrentMessage((prev) => prev + 1);
           setFade(true);

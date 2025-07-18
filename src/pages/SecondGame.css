@@ -1,0 +1,187 @@
+.secondgame-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #FFB3C6 0%, #FFB3C6 100%);
+  font-family: 'Poppins', 'Arial', sans-serif;
+}
+
+.secondgame-card {
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 8px 32px rgba(80, 0, 80, 0.12);
+  border-radius: 32px;
+  background: #FFE5EC;
+  border: none;
+  padding: 2.5rem 2rem;
+}
+
+.secondgame-title {
+  font-family: 'Pacifico', 'Poppins', cursive, sans-serif;
+  color: #d72660;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.secondgame-subtitle {
+  color: #FB6F92;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  font-family: 'Poppins', 'Arial', sans-serif;
+}
+
+.secondgame-progress {
+  color: #d72660;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-family: 'Poppins', 'Arial', sans-serif;
+}
+
+.secondgame-qualities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.secondgame-quality-btn {
+  width: 140px;
+  height: 40px;
+  min-width: 140px;
+  min-height: 40px;
+  margin: 0.25rem;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: 2rem;
+  background: rgba(255,255,255,0.7);
+  color: #d72660;
+  border: 2px solid #ffb6b9;
+  box-shadow: 0 2px 8px rgba(255,182,185,0.10);
+  transition: opacity 1.2s, transform 2.2s, background 0.2s, color 0.2s, border 0.2s;
+  font-family: 'Poppins', 'Arial', sans-serif;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.secondgame-quality-btn.selected {
+  background: #FF8FAB !important;
+  color: #fff !important;
+  border: 2px solid #d72660 !important;
+  box-shadow: 0 2px 12px rgba(255,182,185,0.15);
+}
+
+.secondgame-quality-btn.fade-out {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.0);
+  background: rgba(255,255,255,0.3);
+  color: #d72660;
+  border: 2px solid #ffb6b9;
+  box-shadow: none;
+  width: 140px;
+  height: 40px;
+  min-width: 140px;
+  min-height: 40px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: 2rem;
+  font-family: 'Poppins', 'Arial', sans-serif;
+  text-align: center;
+}
+
+.secondgame-quality-fadewrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 140px;
+  min-height: 80px;
+  box-sizing: border-box;
+  animation: fadeOutWrap 2.2s forwards;
+}
+
+@keyframes fadeOutWrap {
+  0% { opacity: 1; }
+  100% { opacity: 0; height: 0; margin: 0; }
+}
+
+.secondgame-quality-fadewrap .secondgame-message {
+  color: #d72660;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  opacity: 1;
+  transition: opacity 2.2s;
+  font-family: 'Poppins', 'Arial', sans-serif;
+  min-height: 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.secondgame-message {
+  color: #d72660;
+  font-weight: 600;
+  margin-top: 1rem;
+  font-family: 'Poppins', 'Arial', sans-serif;
+}
+
+.secondgame-success {
+  color: #43aa8b;
+  font-weight: 600;
+  margin-top: 2rem;
+  font-size: 1.15rem;
+  font-family: 'Poppins', 'Arial', sans-serif;
+}
+
+.secondgame-continue-btn {
+  width: 100%;
+  margin-top: 1.5rem;
+  background: #FF8FAB;
+  color: #fff;
+  font-family: 'Pacifico', 'Poppins', cursive, sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 12px rgba(255, 182, 185, 0.15);
+  border: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.secondgame-continue-btn:hover, .secondgame-continue-btn:focus {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 18px rgba(255, 182, 185, 0.25);
+  background: #fae3d9;
+}
+
+.secondgame-continue-btn:disabled {
+  background: #ffb6b9;
+  color: #fff;
+  opacity: 0.7;
+}
+
+@media (max-width: 600px) {
+  .secondgame-card {
+    max-width: 98vw;
+    padding: 1rem;
+  }
+  .secondgame-title {
+    font-size: 1.3rem;
+  }
+  .secondgame-subtitle {
+    font-size: 1rem;
+  }
+}

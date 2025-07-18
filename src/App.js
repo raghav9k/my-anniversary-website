@@ -3,9 +3,10 @@ import { MantineProvider } from '@mantine/core';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Countdown from './pages/Countdown';
-import Photos from './pages/Photos';
 import Message from './pages/Message';
 import FirstGame from './pages/FirstGame';
+import SecondGame from './pages/SecondGame';
+import ThirdGame from './pages/ThirdGame';
 
 function App() {
   return (
@@ -14,9 +15,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Countdown />} />
           <Route path="/countdown" element={<Countdown />} />
-          <Route path="/photos" element={<Photos />} />
           <Route path="/message" element={<Message />} />
-          <Route path="/firstGame" element={<FirstGame />} />
+          <Route path="/quiz" element={<FirstGame />} />
+          <Route path="/qualities" element={<SecondGame />} />
+          <Route path="/hottestboyfriend" element={<ThirdGame />} />
         </Routes>
       </BrowserRouter>
     </MantineProvider>

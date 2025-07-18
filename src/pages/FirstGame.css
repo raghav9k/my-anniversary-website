@@ -94,6 +94,26 @@ body {
   text-align: center;
 }
 
+.firstgame-submit-button {
+  width: 100%;
+  background: #FF8FAB;
+  color: #fff;
+  font-family: 'Pacifico', 'Poppins', cursive, sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 12px rgba(255, 182, 185, 0.15);
+  border: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+  margin-top: 1rem;
+}
+
+.firstgame-submit-button:hover, .firstgame-submit-button:focus {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 18px rgba(255, 182, 185, 0.25);
+  background: #fae3d9;
+}
+
 @media (max-width: 600px) {
   .firstgame-card {
     max-width: 98vw;
