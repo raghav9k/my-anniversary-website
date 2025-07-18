@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/my-anniversary-website/static/css/main.90601855.css",
-    "main.js": "/my-anniversary-website/static/js/main.bb78a9f5.js",
+    "main.css": "/my-anniversary-website/static/css/main.504b6825.css",
+    "main.js": "/my-anniversary-website/static/js/main.c859ebfc.js",
     "static/js/453.575118e1.chunk.js": "/my-anniversary-website/static/js/453.575118e1.chunk.js",
     "index.html": "/my-anniversary-website/index.html",
-    "main.90601855.css.map": "/my-anniversary-website/static/css/main.90601855.css.map",
-    "main.bb78a9f5.js.map": "/my-anniversary-website/static/js/main.bb78a9f5.js.map",
+    "main.504b6825.css.map": "/my-anniversary-website/static/css/main.504b6825.css.map",
+    "main.c859ebfc.js.map": "/my-anniversary-website/static/js/main.c859ebfc.js.map",
     "453.575118e1.chunk.js.map": "/my-anniversary-website/static/js/453.575118e1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.90601855.css",
-    "static/js/main.bb78a9f5.js"
+    "static/css/main.504b6825.css",
+    "static/js/main.c859ebfc.js"
   ]
 }
