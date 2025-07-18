@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './Countdown.css';
 
 // Set to true to force message mode for development
-const DEV_FORCE_MESSAGES = true;
+const DEV_FORCE_MESSAGES = false;
 
 function useAnimateOnChange(value) {
   const [animate, setAnimate] = useState(false);
@@ -45,26 +45,20 @@ function Countdown() {
   const intervalRef = useRef();
 
   useEffect(() => {
-    // Helper to get EST (America/New_York) time
-    function getESTDate(date = new Date()) {
-      // EST is UTC-5, but with daylight saving, EDT is UTC-4
-      // We'll use Intl API to get the correct offset for America/New_York
-      const options = { timeZone: 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-      const parts = new Intl.DateTimeFormat('en-US', options).formatToParts(date);
-      const get = (type) => parts.find(p => p.type === type)?.value;
-      // Build a string like 'YYYY-MM-DDTHH:mm:ss' in EST
-      const estString = `${get('year')}-${get('month')}-${get('day')}T${get('hour')}:${get('minute')}:${get('second')}`;
-      return new Date(estString);
+    // Get current UTC time
+    function getUTCDate() {
+      return new Date(); // JS Date is always in UTC internally
     }
 
-    // Set your anniversary date in EST (midnight at start of the day)
-    // Use UTC time for the anniversary, then compare to EST now
-    // July is month 6 (0-based), 4am UTC = midnight EST (EDT)
+    // Set your anniversary date in UTC (July 19, 2025, 4am UTC = midnight NY)
     const anniversaryUTC = new Date(Date.UTC(2025, 6, 19, 4, 0, 0));
 
     intervalRef.current = setInterval(() => {
-      const nowEST = getESTDate();
-      const diff = anniversaryUTC - nowEST;
+      const nowUTC = getUTCDate();
+      const diff = anniversaryUTC - nowUTC;
+      console.log('anniversaryUTC:', anniversaryUTC);
+      console.log('nowUTC:', nowUTC);
+      console.log('diff:', diff);
       setCountdownStarted(true);
       const days = Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
       const hours = Math.max(0, Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
