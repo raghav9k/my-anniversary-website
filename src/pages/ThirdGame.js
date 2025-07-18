@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './ThirdGame.css';
 import { Card, Title } from '@mantine/core';
+import { useNavigate } from 'react-router-dom';
 
 const leftImg = process.env.PUBLIC_URL + '/myphoto.jpg';
 const rightImages = [
@@ -25,6 +26,7 @@ const ThirdGame = () => {
   const [rightIndex, setRightIndex] = useState(0);
   const [imgTransition, setImgTransition] = useState(false);
   const [leftClicked, setLeftClicked] = useState(false);
+  const navigate = useNavigate();
 
   const handleLeftClick = () => {
     setLeftClicked(true);
@@ -74,7 +76,18 @@ const ThirdGame = () => {
       {selected && <div className="thirdgame-success">Great Choices!❤️ </div>}
       {selected && (
         <div className="thirdgame-link">
-          <a href="/message">Click here to go to the message</a>
+          <button
+            type="button"
+            className="thirdgame-link-btn"
+            onClick={() => navigate('/message')}
+            style={{
+              background: '#FF8FAB', color: '#fff', fontFamily: 'Pacifico, Poppins, cursive', fontSize: '1.18rem', fontWeight: 600, letterSpacing: '0.7px', padding: '0.85rem 2.7rem', borderRadius: '2.2rem', boxShadow: '0 4px 16px rgba(255, 182, 185, 0.18)', border: 'none', cursor: 'pointer', transition: 'background 0.2s, box-shadow 0.2s, transform 0.15s'
+            }}
+            onMouseOver={e => { e.currentTarget.style.background = '#fae3d9'; e.currentTarget.style.color = '#d72660'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(255, 182, 185, 0.28)'; e.currentTarget.style.transform = 'translateY(-2px) scale(1.05)'; }}
+            onMouseOut={e => { e.currentTarget.style.background = '#FF8FAB'; e.currentTarget.style.color = '#fff'; e.currentTarget.style.boxShadow = '0 4px 16px rgba(255, 182, 185, 0.18)'; e.currentTarget.style.transform = 'none'; }}
+          >
+            Click here to go to the message
+          </button>
         </div>
       )}
     </Card>
