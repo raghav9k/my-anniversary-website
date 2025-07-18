@@ -23,10 +23,18 @@ const ThirdGame = () => {
   const [shake, setShake] = useState(false);
   const [selected, setSelected] = useState(false);
   const [rightIndex, setRightIndex] = useState(0);
+  const [imgTransition, setImgTransition] = useState(false);
+  const [leftClicked, setLeftClicked] = useState(false);
 
   const handleLeftClick = () => {
+    setLeftClicked(true);
+    setTimeout(() => setLeftClicked(false), 250);
     if (rightIndex < rightImages.length - 1) {
-      setRightIndex((prev) => prev + 1);
+      setImgTransition(true);
+      setTimeout(() => {
+        setRightIndex((prev) => prev + 1);
+        setImgTransition(false);
+      }, 250); // duration matches CSS
     } else {
       setSelected(true);
     }
@@ -47,14 +55,14 @@ const ThirdGame = () => {
       <Title align="center" order={2} mb="md" className="thirdgame-title">Pick the hotter one</Title>
       <div className="thirdgame-vs-row">
         <div
-          className={`thirdgame-img-wrap${shake ? ' shake' : ''}${selected ? ' selected' : ''}`}
+          className={`thirdgame-img-wrap${shake ? ' shake' : ''}${selected ? ' selected' : ''}${leftClicked ? ' left-clicked' : ''}`}
           onClick={handleLeftClick}
         >
           <img src={leftImg} alt="Left" className="thirdgame-img" />
         </div>
         <div className="thirdgame-vs">vs</div>
         <div
-          className="thirdgame-img-wrap"
+          className={`thirdgame-img-wrap${imgTransition ? ' img-transition' : ''}`}
           onClick={handleRightClick}
         >
           <img src={rightImages[rightIndex]} alt="Right" className="thirdgame-img" />
